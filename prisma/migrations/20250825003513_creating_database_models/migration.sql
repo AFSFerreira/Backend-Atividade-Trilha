@@ -6,7 +6,7 @@ CREATE TABLE "User" (
     "loginAttempts" INTEGER NOT NULL DEFAULT 0,
     "lastLogin" DATETIME,
     "passwordDigest" TEXT NOT NULL,
-    "role" TEXT NOT NULL DEFAULT 'NORMAL_USER',
+    "role" TEXT NOT NULL DEFAULT 'DEFAULT',
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );

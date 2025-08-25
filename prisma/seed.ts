@@ -1,16 +1,28 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, UserRole } from '@prisma/client'
 import { hash } from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
 async function main() {
   await prisma.user.upsert({
-    where: { email: "email@example.com" },
+    where: { email: "admin@email.com" },
     update: {},
     create: {
       name: "Admin",
-      email: "email@example.com",
-      password_digest: await hash("12345678", 10),
+      email: "admin@email.com",
+      role: UserRole.ADMIN,
+      passwordDigest: await hash("12345678", 10),
+    }
+  })
+
+  await prisma.user.upsert({
+    where: { email: "user@email.com" },
+    update: {},
+    create: {
+      name: "User",
+      email: "user@email.com",
+      role: UserRole.DEFAULT,
+      passwordDigest: await hash("12345678", 10),
     }
   })
 }

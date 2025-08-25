@@ -13,6 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  ADMIN
+  DEFAULT
+}
+
+enum AuthenticationStatus {
+  SUCCESS
+  USER_NOT_EXISTS
+  INCORRECT_PASSWORD
+  BLOCKED
+}
+
 model User {
   id             String    @id @default(uuid())
   name           String
@@ -20,7 +32,7 @@ model User {
   loginAttempts  Int       @default(0)
   lastLogin      DateTime?
   passwordDigest String
-  role           UserRole  @default(NORMAL_USER)
+  role           UserRole  @default(DEFAULT)
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
@@ -29,10 +41,6 @@ model User {
   @@index([id])
 }
 
-enum UserRole {
-  ADMIN
-  NORMAL_USER
-}
 
 model AuthenticationAudit {
   id         Int       @id @default(autoincrement())
@@ -45,9 +53,3 @@ model AuthenticationAudit {
   createdAt  DateTime  @default(now())
 }
 
-enum AuthenticationStatus {
-  SUCCESS
-  USER_NOT_EXISTS
-  INCORRECT_PASSWORD
-  BLOCKED
-}
