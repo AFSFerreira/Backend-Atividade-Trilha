@@ -21,7 +21,6 @@ Siga os passos abaixo para começar:
 
 ```bash
 POST http://localhost:3333/sessions
-Content-Type: application/json
 
 {
 	"email": "admin@email.com",
@@ -35,7 +34,6 @@ Para acessar rotas protegidas, inclua no cabeçalho da requisição o header `Au
 
 ```bash
 PATCH http://localhost:3333/users/64eb6347-eeb8-45f6-a29f-4d831dc78fb1
-
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4ODVlNjVmZS1hNzg4LTQ4Y2MtYjIzMC1hNjI3NWRhYmE5OTYiLCJpYXQiOjE3NTYwODExNDgsImV4cCI6MTc1NjA4MTQ0OH0.JstfOz2a7i3zG_j9pdZxfEAcvSgHY598ddVygDVLumY
 
 {
