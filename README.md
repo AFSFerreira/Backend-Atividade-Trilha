@@ -12,7 +12,7 @@ Siga os passos abaixo para começar:
 
 | Tipo   | Email             | Senha     |
 |--------|-------------------|-----------|
-| Admin  | admin@email.com   | 12345678  |
+| Admin  | <p>admin@email.com</p>   | 12345678  |
 | Comum  | user@email.com    | 12345678  |
 
 </div>
